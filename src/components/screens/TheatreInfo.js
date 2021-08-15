@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Card } from 'react-bootstrap'
 import axios from 'axios'
 import Loader from '../Loader'
 import Message from '../Message'
+import ScreenAndShows from '../../components/ScreenAndShows'
 
 const TheatreInfo = ({ history, match }) => {
 
@@ -18,8 +19,7 @@ const TheatreInfo = ({ history, match }) => {
         if (data.code == 200) {
             setData({ screenInfoList: data.response.screenInfoList, theatreName: data.response.theatreName });
         }
-        else
-        {
+        else {
             setError(data.message);
         }
     }, []);
@@ -33,13 +33,14 @@ const TheatreInfo = ({ history, match }) => {
                     (<>
                         <h1>{data.theatreName}</h1>
                         {data.screenInfoList.map((screenInfo) => (
-                            <Row>
-
-                                <h4>{screenInfo.screenName}</h4>
-
-                                {/* <Col key={theatreInfo.theatreId} sm={12} md={6} lg={4} xl={3}>
-                                    <Theatre theatreInfo={theatreInfo} />
-                                </Col> */}
+                            <Row key={screenInfo.screenId}>
+                                {/* <h4>{screenInfo.screenName}</h4> */}
+                                <Col key={screenInfo.screenId} md={12}>
+                                    <ScreenAndShows
+                                        screenInfo={screenInfo}
+                                        theatreId={match.params.id}
+                                    />
+                                </Col>
 
                             </Row>
                         ))}
