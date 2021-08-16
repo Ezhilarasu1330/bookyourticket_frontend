@@ -11,7 +11,7 @@ SIGNUP PAGE
 
 THEATRE LIST PAGE 
 
-![image](https://user-images.githubusercontent.com/19296585/129451001-37989f75-7862-4ef5-bf04-02d7a38ed1fc.png)
+![image](https://user-images.githubusercontent.com/19296585/129576001-986569f2-abe7-4f4d-a336-76e36ac0472e.png)
 
 SCREEN AND SHOW LIST PAGE
 
