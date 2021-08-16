@@ -19,10 +19,10 @@ SCREEN AND SHOW LIST PAGE
 
 SCREEN AND SEAT LIST PAGE
 
-![image](https://user-images.githubusercontent.com/19296585/129575702-5153a5cd-0ebe-4027-b4ac-bb8a55620356.png)
+![image](https://user-images.githubusercontent.com/19296585/129584112-5666cfae-6c25-431c-9574-6faa9f3cd59b.png)
 
 VALIDATION ON USER SELECTS MORE THAN 6 SEATS
 
-![image](https://user-images.githubusercontent.com/19296585/129575817-1bb8c9b2-193e-4a97-9086-579406f20edf.png)
+![image](https://user-images.githubusercontent.com/19296585/129584034-959e1f1e-df6a-440c-8f5a-8d1e0f6ca660.png)
 
 
