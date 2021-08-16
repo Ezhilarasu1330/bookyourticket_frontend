@@ -14,6 +14,7 @@ const ScreenSeats = ({ history, match }) => {
     const [loading, setLoading] = useState('')
     const [error, setError] = useState('')
     const [ticketCount, setTicketCount] = useState(0)
+    const [selectedSeat, setSelectedSeat] = useState([])
     const [price, setPrice] = useState(0)
     // Notification
     const [notify, setNotify] = useState({ isOpen: false, message: '', type: '' })
@@ -43,6 +44,7 @@ const ScreenSeats = ({ history, match }) => {
         //     console.log(event.target.className.replace("selected", "").trim())
         // }
 
+        const selectedSeatId = event.target.id.split("seat_").pop();
         var seats = document.getElementsByClassName("selected");
         if (seats.length == 7) {
             setNotify({
@@ -50,6 +52,8 @@ const ScreenSeats = ({ history, match }) => {
             })
         }
         else {
+
+            setSelectedSeat(selectedSeat => [...selectedSeat, parseInt(selectedSeatId)]);
             setTicketCount(seats.length)
             setPrice(seats.length * 120)
             if (!event.target.classList.contains('occupied') && !event.target.classList.contains('selected')) {
@@ -58,8 +62,22 @@ const ScreenSeats = ({ history, match }) => {
         }
     }
 
-    const bookTicketCartHandler = () => {
-        console.log("Book Tickets");
+    const bookTicketCartHandler = async () => {
+
+        if (ticketCount > 0) {
+            const reqdata = {
+                showId: match.params.screenId,
+                selectedSeat: selectedSeat
+            }
+            const config = { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }
+            const { data } = await axios.post(`http://localhost:9090/show/${match.params.screenId}/book`, reqdata, config);
+        }
+        else {
+            setNotify({
+                isOpen: true, message: 'Select atleast one ticket to proceed booking', type: 'error'
+            })
+        }
+
     }
 
     return (
