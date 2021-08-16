@@ -4,6 +4,7 @@ import { Row, Col, Card } from 'react-bootstrap'
 import axios from 'axios'
 import Loader from '../Loader'
 import Message from '../Message'
+import Notification from '../Notification'
 import moment from 'moment'
 
 const ScreenSeats = ({ history, match }) => {
@@ -12,6 +13,8 @@ const ScreenSeats = ({ history, match }) => {
 
     const [loading, setLoading] = useState('')
     const [error, setError] = useState('')
+    // Notification
+    const [notify, setNotify] = useState({ isOpen: false, message: '', type: '' })
     const [data, setData] = useState({ screenSeatInfo: [], theatreName: '', movieName: '', showStartTime: '' });
 
     let token = localStorage.getItem('AuthToken');
@@ -31,6 +34,22 @@ const ScreenSeats = ({ history, match }) => {
         }
     }, []);
 
+
+    const selectSeatHandler = (event) => {
+
+        var seats = document.getElementsByClassName("selected");
+        console.log('seats ::: ', seats)
+        if (seats.length == 7) {
+            setNotify({
+                isOpen: true, message: 'You can able to select only 6 seats', type: 'error'
+            })
+        }
+        else {
+            if (!event.target.classList.contains('occupied') && !event.target.classList.contains('selected')) {
+                event.target.classList.add("selected");
+            }
+        }
+    }
 
     return (
         <>
@@ -66,28 +85,31 @@ const ScreenSeats = ({ history, match }) => {
                             </li>
                         </ul>
 
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+                        <div style={{ perspective: '1000px' }}>
+                            <div className="screen"></div>
+                        </div>
 
                         <Row>
-
-                            <div class="container">
-                                <div class="screen"></div>
-                                <div class="row">
-                                </div>
-                            </div>
-
                             {data.screenSeatInfo ? data.screenSeatInfo.map((seatInfo) => (
-                                <Card className='my-3 p-3 rounded'>
-                                    <Card.Title as='div'>
-                                        <strong>{seatInfo.seatNumber}</strong>
-                                    </Card.Title>
-                                </Card>
-                                // <Card.Title as='div'>
-                                //     <strong>{seatInfo.seatNumber}</strong>
-                                // </Card.Title>
-                            )) : <h1>No Seats available</h1>}
+                                <div
+                                    id={"seat_" + seatInfo.screenSeatId}
+                                    key={seatInfo.screenSeatId}
+                                    className={"seat " + (seatInfo.booked ? 'occupied' : '')}
+                                    onClick={(e) => selectSeatHandler(e)}>
+                                </div>
+                            )) : <h1></h1>}
                         </Row>
                     </>)
             }
+
+            <Notification
+                notify={notify}
+                setNotify={setNotify}
+            />
         </>
     )
 }

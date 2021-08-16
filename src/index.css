@@ -18,9 +18,9 @@ h2 {
 
 .seat {
     background-color: #444451;
-    height: 12px;
-    width: 15px;
-    margin: 3px;
+    height: 21px;
+    width: 25px;
+    margin: 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -29,8 +29,12 @@ h2 {
     background-color: #6feaf6;
 }
 
+.row {
+    justify-content: center;
+}
+
 .seat.occupied {
-    background-color: #fff;
+    background-color: rgb(252, 5, 5);
 }
 
 .seat:nth-of-type(2) {
@@ -71,4 +75,14 @@ h2 {
 
 .showcase li small {
     margin-left: 2px;
+}
+
+
+.screen {
+    background-color: #b9b3b369;
+    height: 150px;
+    width: 70%;
+    margin: 0 auto 90px;
+    transform: rotateX(-25deg);
+    box-shadow: 0 3px 10px rgb(255 255 255 / 70%);
 }
