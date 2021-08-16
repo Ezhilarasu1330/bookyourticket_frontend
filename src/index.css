@@ -86,3 +86,7 @@ h2 {
     transform: rotateX(-25deg);
     box-shadow: 0 3px 10px rgb(255 255 255 / 70%);
 }
+
+.priceInfo {
+    margin: 50% 0 0;
+}
