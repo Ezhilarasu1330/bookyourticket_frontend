@@ -13,3 +13,16 @@ THEATRE LIST PAGE
 
 ![image](https://user-images.githubusercontent.com/19296585/129451001-37989f75-7862-4ef5-bf04-02d7a38ed1fc.png)
 
+SCREEN AND SHOW LIST PAGE
+
+![image](https://user-images.githubusercontent.com/19296585/129575633-e9a3ca75-133b-430b-8a8a-7f3b6a207205.png)
+
+SCREEN AND SEAT LIST PAGE
+
+![image](https://user-images.githubusercontent.com/19296585/129575702-5153a5cd-0ebe-4027-b4ac-bb8a55620356.png)
+
+VALIDATION ON USER SELECTS MORE THAN 6 SEATS
+
+![image](https://user-images.githubusercontent.com/19296585/129575817-1bb8c9b2-193e-4a97-9086-579406f20edf.png)
+
+
